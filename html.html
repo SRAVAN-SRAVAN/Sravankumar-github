@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Insertion of Employee information to Database</title>
+</head>
+<style> 
+body{
+        background-color: red;
+
+}
+
+</style>
+<body>
+<p id="demo"></p>
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+<center><i style="color: black;font-size:20pt">Enter the following information to be inserted into Database</i></center>
+<form action="http://localhost/TEST/lab7.php" method="post">
+<div><pre>                   Enter Name:<input type="text" name="name"/><br /><br/>
+                   Enter employee id:<input type="text" name="emp_id"/><br /><br/>
+                   Enter experience: <input type="text" name="exp"/><br /><br/>
+                   Emp_email:       <input type="email" id="email" name="atc" maxlength="30"><br/><br/>
+                   Emp_phno:        <input type="text" name="phone" maxlength="20"><br/><br/>
+                   Emp_DOB:         <input type="date" id="birthday" name="birthday"><br/><br/>
+                   Location:        <button onclick="getLocation()">click to access location</button><br/><br/>
+                   Address:
+                   <textarea rows="10" cols="100"></textarea><br/><br/>
+                   Current company:<input type="text" name="current" maxlength="20"/><br/><br/></pre></div>
+<pre>              <input type="submit" value="submit details"/>              <input type="reset" value="reset"/></pre>
+</form>
+</body>
+</html>
